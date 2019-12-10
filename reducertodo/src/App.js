@@ -10,6 +10,8 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to the React/Reducer ToDo!</h1>
+      <Form />
+      <List />
     </div>
   );
 }
