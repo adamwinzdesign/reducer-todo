@@ -9,6 +9,7 @@ export const initialState = [
 ]
 
 export const reducer = (state, action) => {
+  console.log('state in reducer:', state);
   switch (action.type) {
     case "ADD":
       const newItem = {
