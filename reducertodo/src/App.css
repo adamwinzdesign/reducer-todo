@@ -28,3 +28,26 @@
   text-decoration: line-through;
   background: red;
 }
+
+.listContain {
+  width: 30%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: 1rem auto;
+}
+
+form input, form button {
+  height: 2rem;
+  margin: 1rem;
+}
+
+button { 
+  height: 2rem;
+}
