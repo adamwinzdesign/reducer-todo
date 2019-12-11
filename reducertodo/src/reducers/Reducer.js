@@ -2,25 +2,20 @@
 
 export const initialState = [
   {
-    item: 'Learn about reducers',
+    todo: 'Learn about reducers',
     completed: false,
-    id: 0
+    id: Date.now()
   }
 ]
 
 export const reducer = (state, action) => {
-  console.log('state in reducer:', state);
+  // console.log('state in reducer:', state);
   switch (action.type) {
-    case "ADD":
-      const newItem = {
-        item: action.payload,
-        id: Date.now(),
-        completed: false
-      };
-      return[...state, newItem];
+    case "ADD_TODO":
+      return[...state, action.payload];
     
-    case "TOGGLE":
-      return state.map((item, index) => {
+    case "COMPLETED_TODO":
+      return state.map((item) => {
         if(item.id === action.payload) {
           return {
             ...item, completed: !item.completed
@@ -29,11 +24,12 @@ export const reducer = (state, action) => {
         return item;
       });
 
-    case "CLEAR":
+    case "CLEAR_COMPLETED_TODO":
       const clearList = state.filter(item => item.completed === false);
       return clearList;
 
     default:
-      throw new Error('Nothing happened!');
+      return state;
+      // throw new Error('Nothing happened!');
   }
 }

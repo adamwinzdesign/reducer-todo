@@ -3,11 +3,10 @@ import ListItem from './ListItem';
 
 const List = props => (
   <div>
-    <div>{props.list.map((element, index) => {
-      return <ListItem key={index} index={index} toDo={element} />;
+    <div>{props.state.map((item) => {
+      return <ListItem key={item.id} item={item} handleComplete={props.handleComplete}/>;
     })}
     </div>
-    <h1>test</h1>
   </div>
 )
 
