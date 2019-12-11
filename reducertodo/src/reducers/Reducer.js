@@ -19,13 +19,19 @@ export const reducer = (state, action) => {
       };
       return[...state, newItem];
     
-    case "MARKCOMPLETE":
-      
-      return[...state];
+    case "TOGGLE":
+      return state.map((item, index) => {
+        if(item.id === action.payload) {
+          return {
+            ...item, completed: !item.completed
+          }
+        }
+        return item;
+      });
 
-    case "REMOVECOMPLETE":
-
-      return[...state];
+    case "CLEAR":
+      const clearList = state.filter(item => item.completed === false);
+      return clearList;
 
     default:
       throw new Error('Nothing happened!');
